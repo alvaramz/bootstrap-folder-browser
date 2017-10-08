@@ -49,7 +49,7 @@ namespace FancyTree.Models
             {
                 Title = dirInfo.Name,
                 Key = dirInfo.FullName,
-                Icon = "halflings glyphicons-folder-open",
+                Icon = "glyphicons glyphicons-folder-open",
                 IsFolder = true,
                 IsLazy = true,
                 Children = null

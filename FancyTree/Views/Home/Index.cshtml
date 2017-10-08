@@ -10,8 +10,11 @@
     <script type="text/javascript">
         $(function () {
             $("#fileTree").fancytree({
-                imagePath: "images/",
                 extensions: ["glyph"],
+                glyph: {
+                    preset: "bootstrap3"
+                },
+                imagePath: "images/",
                 source: {
                     url: "@Url.Action("DirData", "FancyTree")",
                     cache: false
@@ -28,6 +31,8 @@
                 },
                 clickFolderMode: 3
             });
+            $(".fancytree-container").addClass("fancytree-connectors");
         });
     </script>
 }
+glyphicon glyphicon-folder-close

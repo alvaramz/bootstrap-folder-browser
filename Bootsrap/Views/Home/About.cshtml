@@ -1,7 +1,20 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@model IEnumerable<Bootstrap.Models.TreeNode>    
 
-<p>Use this area to provide additional information.</p>
+<div id="bsTree"></div>
+
+@section Scripts
+{
+    <script>
+        $(function() {
+            $.ajax("@Url.Action("TreeData","TreeView")")
+                .done(function(resp) {
+                    $("#bsTree").treeview({
+                        data: resp
+                    });
+                })
+                .fail(function(error) {
+                    console.log(error);
+                });
+        });
+    </script>
+}

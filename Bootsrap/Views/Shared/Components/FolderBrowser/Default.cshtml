@@ -1,7 +1,25 @@
-﻿
-@{
-    ViewData["Title"] = "Default";
-}
+﻿@using Bootstrap.Components
+@model IEnumerable<Bootstrap.Models.TreeNode>
 
-<h2>Default</h2>
+
+<div>
+    @await Component.InvokeAsync("FolderBrowser"))
+</div>
+
+@section Scripts
+{
+    <script>
+        $(function() {
+            $.ajax("@Url.Action("TreeData","TreeView")")
+                .done(function(resp) {
+                    $("#bsTree").treeview({
+                        data: resp
+                    });
+                })
+                .fail(function(error) {
+                    console.log(error);
+                });
+        });
+    </script>
+}
 

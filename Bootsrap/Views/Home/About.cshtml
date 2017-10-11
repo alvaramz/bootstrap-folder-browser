@@ -1,20 +1,60 @@
 ﻿@model IEnumerable<Bootstrap.Models.TreeNode>    
+    
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-<div id="bsTree"></div>
+    .dropdown-container {
+        width: 100%;
+        display: table;
+        background: orange;
+    }
 
-@section Scripts
-{
-    <script>
-        $(function() {
-            $.ajax("@Url.Action("TreeData","TreeView")")
-                .done(function(resp) {
-                    $("#bsTree").treeview({
-                        data: resp
-                    });
-                })
-                .fail(function(error) {
-                    console.log(error);
-                });
-        });
-    </script>
-}
+    .dropdown-container .input-container {
+        display: table-cell;
+    }
+
+    .dropdown-container .input-container input {
+        width: 100%;
+        padding-right: 10px;
+    }
+
+    .dropdown-container .button-container {
+        display: table-cell;
+        width: 150px;
+    }
+
+    .dropdown-container .button-container button {
+        width: 100%;
+    }
+</style>
+
+
+<div class="folder-select dropdown-container" data-panelId="folderPanel">
+    <div class="input-container">
+        <input type="text" class="folder-selection" />
+    </div>
+    <div class="button-container">
+        <button type="button" class="dropdown-button">Drop</button>
+    </div>
+</div>
+
+
+<div id="bsTree" style="width: 400px; height: 300px;"></div>
+
+<script>
+    function showDropdown(parentDiv) {    
+        
+
+    }
+
+    function hideDropdown() {
+        
+    }
+
+    $(function() {
+        $(".dropdown-button").
+    });
+
+</script>

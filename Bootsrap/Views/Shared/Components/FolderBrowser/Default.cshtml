@@ -1,13 +1,15 @@
 ﻿@using Bootstrap.Components
 @model IEnumerable<Bootstrap.Models.TreeNode>
 
-
 <div>
-    @await Component.InvokeAsync("FolderBrowser"))
+    <div>
+        <input type="text" class="selected-folder" />
+        <button type="button">...</button>
+    </div>
 </div>
 
 @section Scripts
-{
+    {
     <script>
         $(function() {
             $.ajax("@Url.Action("TreeData","TreeView")")

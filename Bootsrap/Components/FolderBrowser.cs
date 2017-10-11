@@ -17,16 +17,16 @@ namespace Bootstrap.Components
     /// </summary>
     public class FolderBrowser: ViewComponent
     {
-        private IOptions<FileTreeConfig> _config;
+        private FileTreeConfig _config;
 
         public FolderBrowser(IOptions<FileTreeConfig> config)
         {
-            _config = config;
+            _config = config.Value;
         }
 
         public async Task<IViewComponentResult> InvokeAsync(string dir, bool showFiles = false)
         {
-            var browsingRoot = Path.Combine(_config.Value.BaseDir, dir);
+            var browsingRoot = Path.Combine(_config.BaseDir, dir);
             var nodes = new List<TreeNode>();
             nodes.AddRange(RecurseDirectory(browsingRoot));
             return new ContentViewComponentResult(JsonConvert.SerializeObject(nodes));
